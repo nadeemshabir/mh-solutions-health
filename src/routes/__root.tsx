@@ -125,10 +125,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+// Injected before any content so the class is set synchronously,
+// preventing a flash of unstyled content (FOUC) for dark mode on SSR.
+const themeScript = `
+(function() {
+  try {
+    var stored = localStorage.getItem('mh-ui-theme');
+    var theme = stored === 'dark' || stored === 'light' ? stored : null;
+    if (!theme) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.classList.add(theme);
+  } catch (e) {}
+})();
+`.trim();
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/* eslint-disable-next-line react/no-danger */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <HeadContent />
       </head>
       <body>
