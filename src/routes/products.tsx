@@ -68,7 +68,7 @@ function Products() {
                 </ul>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Button asChild className="gradient-hero border-0 text-primary-foreground shadow-elegant">
-                    <Link to="/quote">
+                    <Link to="/quote" search={{ equipment: e.name }}>
                       Get a Quote <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
