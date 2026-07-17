@@ -15,6 +15,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingContact } from "@/components/site/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 function NotFoundComponent() {
   return (
@@ -161,15 +162,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1 pb-16 sm:pb-0">
-          <Outlet />
-        </main>
-        <Footer />
-        <FloatingContact />
-        <Toaster position="top-right" richColors />
-      </div>
+      <ThemeProvider defaultTheme="system" storageKey="mh-ui-theme">
+        <div className="flex min-h-screen flex-col bg-background text-foreground transition-colors duration-300">
+          <Header />
+          <main className="flex-1 pb-16 sm:pb-0">
+            <Outlet />
+          </main>
+          <Footer />
+          <FloatingContact />
+          <Toaster position="top-right" richColors />
+        </div>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
