@@ -96,7 +96,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "MH Solutions Sales & Services" },
+      { property: "og:image", content: "https://mhsolutions.in/og-image.jpg" },
+      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://mhsolutions.in/og-image.jpg" },
     ],
     links: [
       {
@@ -135,20 +138,24 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1 pb-16 sm:pb-0">
-          <Outlet />
-        </main>
-        <Footer />
-        <FloatingContact />
-        <Toaster position="top-right" richColors />
-      </div>
+      <ThemeProvider defaultTheme="system">
+        <div className="flex min-h-screen flex-col bg-background text-foreground transition-colors duration-300">
+          <Header />
+          <main className="flex-1 pb-16 sm:pb-0">
+            <Outlet />
+          </main>
+          <Footer />
+          <FloatingContact />
+          <Toaster position="top-right" richColors />
+        </div>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

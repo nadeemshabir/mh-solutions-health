@@ -28,7 +28,10 @@ const schema = z.object({
 
 const SERVICES = ["New Purchase", "Installation", "AMC / CMC", "Repair", "Spare Parts", "Other"];
 
-export function QuoteForm({ defaultEquipment, defaultService }: { defaultEquipment?: string; defaultService?: string } = {}) {
+export function QuoteForm({
+  defaultEquipment,
+  defaultService,
+}: { defaultEquipment?: string; defaultService?: string } = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [equipment, setEquipment] = useState<string>(defaultEquipment ?? "");
@@ -70,7 +73,10 @@ export function QuoteForm({ defaultEquipment, defaultService }: { defaultEquipme
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+    <form
+      onSubmit={onSubmit}
+      className="grid gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
+    >
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Full name" name="name" required />
         <Field label="Phone" name="phone" required type="tel" />
@@ -88,7 +94,9 @@ export function QuoteForm({ defaultEquipment, defaultService }: { defaultEquipme
             </SelectTrigger>
             <SelectContent>
               {EQUIPMENT.map((e) => (
-                <SelectItem key={e.slug} value={e.name}>{e.name}</SelectItem>
+                <SelectItem key={e.slug} value={e.name}>
+                  {e.name}
+                </SelectItem>
               ))}
               <SelectItem value="Other">Other</SelectItem>
             </SelectContent>
@@ -102,7 +110,9 @@ export function QuoteForm({ defaultEquipment, defaultService }: { defaultEquipme
             </SelectTrigger>
             <SelectContent>
               {SERVICES.map((s) => (
-                <SelectItem key={s} value={s}>{s}</SelectItem>
+                <SelectItem key={s} value={s}>
+                  {s}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -110,10 +120,26 @@ export function QuoteForm({ defaultEquipment, defaultService }: { defaultEquipme
       </div>
       <div className="grid gap-1.5">
         <Label htmlFor="message">Additional details</Label>
-        <Textarea id="message" name="message" rows={4} placeholder="Quantity, model, configuration or timeline…" />
+        <Textarea
+          id="message"
+          name="message"
+          rows={4}
+          placeholder="Quantity, model, configuration or timeline…"
+        />
       </div>
-      <Button type="submit" disabled={submitting} className="gradient-hero border-0 text-primary-foreground shadow-elegant">
-        {submitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Submitting…</> : "Request a Quote"}
+      <Button
+        type="submit"
+        disabled={submitting}
+        className="gradient-hero border-0 text-primary-foreground shadow-elegant"
+      >
+        {submitting ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Submitting…
+          </>
+        ) : (
+          "Request a Quote"
+        )}
       </Button>
       <p className="text-xs text-muted-foreground">
         Pricing is configuration-dependent. We'll respond within 24 hours with a detailed quotation.
@@ -122,7 +148,17 @@ export function QuoteForm({ defaultEquipment, defaultService }: { defaultEquipme
   );
 }
 
-function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+}) {
   return (
     <div className="grid gap-1.5">
       <Label htmlFor={name}>

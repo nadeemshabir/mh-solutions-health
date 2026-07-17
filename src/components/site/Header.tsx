@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, X, Stethoscope } from "lucide-react";
+import { Menu, Phone, X, Stethoscope, Sun, Moon } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/ThemeProvider";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
@@ -37,6 +40,17 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-background text-foreground hover:bg-secondary transition-colors cursor-pointer"
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? (
+              <Sun className="h-4 w-4 text-amber-500" />
+            ) : (
+              <Moon className="h-4 w-4 text-primary" />
+            )}
+          </button>
           <a
             href={SITE.phoneHref}
             className="hidden items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10 sm:inline-flex"
@@ -44,7 +58,11 @@ export function Header() {
             <Phone className="h-4 w-4" />
             Call Now
           </a>
-          <Button asChild size="sm" className="hidden sm:inline-flex gradient-hero border-0 text-primary-foreground shadow-elegant hover:opacity-95">
+          <Button
+            asChild
+            size="sm"
+            className="hidden sm:inline-flex gradient-hero border-0 text-primary-foreground shadow-elegant hover:opacity-95"
+          >
             <Link to="/quote">Get a Quote</Link>
           </Button>
           <button

@@ -1,5 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, Clock, Facebook, Linkedin, Instagram, Stethoscope } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Clock,
+  Facebook,
+  Linkedin,
+  Instagram,
+  Stethoscope, 
+} from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 
 export function Footer() {
@@ -17,8 +26,8 @@ export function Footer() {
             </div>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Trusted partner to hospitals, clinics and diagnostic centers for
-            supply, installation, maintenance and repair of medical equipment.
+            Trusted partner to hospitals, clinics and diagnostic centers for supply, installation,
+            maintenance and repair of medical equipment.
           </p>
           <div className="mt-5 flex gap-2">
             {[
@@ -61,11 +70,20 @@ export function Footer() {
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <a href={SITE.phoneHref} className="hover:text-primary">{SITE.phone}</a>
+              <div className="flex flex-col gap-1">
+                <a href={SITE.phoneHref} className="hover:text-primary">
+                  {SITE.phone}
+                </a>
+                <a href={SITE.phone2Href} className="hover:text-primary">
+                  {SITE.phone2}
+                </a>
+              </div>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <a href={`mailto:${SITE.email}`} className="hover:text-primary">{SITE.email}</a>
+              <a href={`mailto:${SITE.email}`} className="hover:text-primary">
+                {SITE.email}
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -81,8 +99,8 @@ export function Footer() {
             <span>{SITE.hours}</span>
           </p>
           <p className="mt-4 text-sm text-muted-foreground">
-            We respond to service requests within one business hour, with
-            same-day dispatch for critical equipment downtime.
+            We respond to service requests within one business hour, with same-day dispatch for
+            critical equipment downtime.
           </p>
         </div>
       </div>

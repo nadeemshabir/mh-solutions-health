@@ -29,9 +29,7 @@ export function ContactForm() {
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase
-      .from("contact_submissions")
-      .insert(parsed.data);
+    const { error } = await supabase.from("contact_submissions").insert(parsed.data);
     setSubmitting(false);
     if (error) {
       toast.error("Couldn't send your message. Please try again.");
@@ -53,7 +51,10 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+    <form
+      onSubmit={onSubmit}
+      className="grid gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
+    >
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Full name" name="name" required />
         <Field label="Phone" name="phone" required type="tel" />
@@ -64,16 +65,43 @@ export function ContactForm() {
       </div>
       <div className="grid gap-1.5">
         <Label htmlFor="message">Message</Label>
-        <Textarea id="message" name="message" required rows={5} placeholder="Tell us about your requirement…" />
+        <Textarea
+          id="message"
+          name="message"
+          required
+          rows={5}
+          placeholder="Tell us about your requirement…"
+        />
       </div>
-      <Button type="submit" disabled={submitting} className="gradient-hero border-0 text-primary-foreground shadow-elegant">
-        {submitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Sending…</> : "Send Message"}
+      <Button
+        type="submit"
+        disabled={submitting}
+        className="gradient-hero border-0 text-primary-foreground shadow-elegant"
+      >
+        {submitting ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Sending…
+          </>
+        ) : (
+          "Send Message"
+        )}
       </Button>
     </form>
   );
 }
 
-function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+}) {
   return (
     <div className="grid gap-1.5">
       <Label htmlFor={name}>

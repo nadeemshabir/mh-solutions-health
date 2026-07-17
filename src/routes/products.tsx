@@ -7,9 +7,16 @@ export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
       { title: "Products & Equipment — MH Solutions" },
-      { name: "description", content: "Dialysis, X-Ray, USG, anesthesia, RO and OT equipment for hospitals and clinics. Request a tailored quote." },
+      {
+        name: "description",
+        content:
+          "Dialysis, X-Ray, USG, anesthesia, RO and OT equipment for hospitals and clinics. Request a tailored quote.",
+      },
       { property: "og:title", content: "Medical equipment — MH Solutions" },
-      { property: "og:description", content: "Browse equipment categories and request configuration-based quotes." },
+      {
+        property: "og:description",
+        content: "Browse equipment categories and request configuration-based quotes.",
+      },
       { property: "og:url", content: "/products" },
     ],
     links: [{ rel: "canonical", href: "/products" }],
@@ -22,14 +29,16 @@ function Products() {
     <div>
       <section className="gradient-soft">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20 lg:px-8">
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary">Products</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Products
+          </span>
           <h1 className="mt-3 max-w-3xl text-4xl font-bold text-foreground sm:text-5xl">
             Medical equipment tailored to your facility.
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-            We supply, install and service the equipment your clinical teams
-            rely on every day. Pricing is configuration-dependent — share your
-            requirement and we'll respond with a detailed quotation.
+            We supply, install and service the equipment your clinical teams rely on every day.
+            Pricing is configuration-dependent — share your requirement and we'll respond with a
+            detailed quotation.
           </p>
         </div>
       </section>
@@ -67,7 +76,10 @@ function Products() {
                   ))}
                 </ul>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <Button asChild className="gradient-hero border-0 text-primary-foreground shadow-elegant">
+                  <Button
+                    asChild
+                    className="gradient-hero border-0 text-primary-foreground shadow-elegant"
+                  >
                     <Link to="/quote" search={{ equipment: e.name }}>
                       Get a Quote <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
@@ -77,7 +89,8 @@ function Products() {
                   </Button>
                 </div>
                 <p className="mt-4 text-xs text-muted-foreground">
-                  Pricing depends on configuration & site conditions. Quotation shared within 24 hours.
+                  Pricing depends on configuration & site conditions. Quotation shared within 24
+                  hours.
                 </p>
               </div>
             </article>
