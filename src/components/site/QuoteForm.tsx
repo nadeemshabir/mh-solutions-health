@@ -28,11 +28,11 @@ const schema = z.object({
 
 const SERVICES = ["New Purchase", "Installation", "AMC / CMC", "Repair", "Spare Parts", "Other"];
 
-export function QuoteForm() {
+export function QuoteForm({ defaultEquipment, defaultService }: { defaultEquipment?: string; defaultService?: string } = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
-  const [equipment, setEquipment] = useState<string>("");
-  const [service, setService] = useState<string>("");
+  const [equipment, setEquipment] = useState<string>(defaultEquipment ?? "");
+  const [service, setService] = useState<string>(defaultService ?? "");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

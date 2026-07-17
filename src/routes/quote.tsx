@@ -3,6 +3,10 @@ import { BadgeCheck, Clock4, ShieldCheck } from "lucide-react";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/quote")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    equipment: typeof search.equipment === "string" ? search.equipment : undefined,
+    service: typeof search.service === "string" ? search.service : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Get a Quote / Request Service — MH Solutions" },
@@ -17,6 +21,7 @@ export const Route = createFileRoute("/quote")({
 });
 
 function Quote() {
+  const { equipment, service } = Route.useSearch();
   return (
     <section className="gradient-soft">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.3fr] lg:py-20 lg:px-8">
@@ -47,7 +52,7 @@ function Quote() {
             ))}
           </ul>
         </div>
-        <QuoteForm />
+        <QuoteForm defaultEquipment={equipment} defaultService={service} />
       </div>
     </section>
   );
