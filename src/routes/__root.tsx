@@ -88,18 +88,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Sales, installation, AMC and repair of dialysis, X-Ray, ultrasound, anesthesia, RO and OT equipment for hospitals, clinics and diagnostic centers.",
       },
       { name: "author", content: "MH Solutions Sales & Services" },
-      { property: "og:title", content: "MH Solutions Sales & Services" },
+      { property: "og:title", content: "MH Solutions Sales & Services — Medical Equipment Experts" },
       {
         property: "og:description",
         content:
-          "Trusted partner for medical equipment sales, installation, maintenance and repair.",
+          "Sales, installation, AMC and repair of dialysis, X-Ray, ultrasound, anesthesia, RO and OT equipment for hospitals, clinics and diagnostic centers.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "MH Solutions Sales & Services" },
-      { property: "og:image", content: "https://mhsolutions.in/og-image.jpg" },
-      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://mhsolutions.in/og-image.jpg" },
+      { name: "twitter:title", content: "MH Solutions Sales & Services — Medical Equipment Experts" },
+      { name: "twitter:description", content: "Sales, installation, AMC and repair of dialysis, X-Ray, ultrasound, anesthesia, RO and OT equipment for hospitals, clinics and diagnostic centers." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d4c480ca-e238-421d-8ed4-cf6cddc6ed48/id-preview-2783a0d4--319b8d07-4522-4f74-b1db-d81c30c382e1.lovable.app-1784278166847.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d4c480ca-e238-421d-8ed4-cf6cddc6ed48/id-preview-2783a0d4--319b8d07-4522-4f74-b1db-d81c30c382e1.lovable.app-1784278166847.png" },
     ],
     links: [
       {
@@ -138,24 +139,20 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-import { ThemeProvider } from "@/components/ThemeProvider";
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="system">
-        <div className="flex min-h-screen flex-col bg-background text-foreground transition-colors duration-300">
-          <Header />
-          <main className="flex-1 pb-16 sm:pb-0">
-            <Outlet />
-          </main>
-          <Footer />
-          <FloatingContact />
-          <Toaster position="top-right" richColors />
-        </div>
-      </ThemeProvider>
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1 pb-16 sm:pb-0">
+          <Outlet />
+        </main>
+        <Footer />
+        <FloatingContact />
+        <Toaster position="top-right" richColors />
+      </div>
     </QueryClientProvider>
   );
 }
