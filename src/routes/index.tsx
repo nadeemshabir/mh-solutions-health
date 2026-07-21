@@ -95,7 +95,7 @@ function Hero() {
           />
           <img
             src={heroImg}
-            alt="Modern operating theatre with medical equipment"
+            alt="Nipro dialysis machine setup next to a hospital bed"
             width={1600}
             height={1100}
             className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant-lg"

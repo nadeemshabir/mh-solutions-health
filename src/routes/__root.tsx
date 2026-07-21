@@ -89,7 +89,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Sales, installation, AMC and repair of dialysis, X-Ray, ultrasound, anesthesia, RO and OT equipment for hospitals, clinics and diagnostic centers.",
       },
       { name: "author", content: "MH Solutions Sales & Services" },
-      { property: "og:title", content: "MH Solutions Sales & Services — Medical Equipment Experts" },
+      {
+        property: "og:title",
+        content: "MH Solutions Sales & Services — Medical Equipment Experts",
+      },
       {
         property: "og:description",
         content:
@@ -98,17 +101,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "MH Solutions Sales & Services" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "MH Solutions Sales & Services — Medical Equipment Experts" },
-      { name: "twitter:description", content: "Sales, installation, AMC and repair of dialysis, X-Ray, ultrasound, anesthesia, RO and OT equipment for hospitals, clinics and diagnostic centers." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d4c480ca-e238-421d-8ed4-cf6cddc6ed48/id-preview-2783a0d4--319b8d07-4522-4f74-b1db-d81c30c382e1.lovable.app-1784278166847.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d4c480ca-e238-421d-8ed4-cf6cddc6ed48/id-preview-2783a0d4--319b8d07-4522-4f74-b1db-d81c30c382e1.lovable.app-1784278166847.png" },
+      {
+        name: "twitter:title",
+        content: "MH Solutions Sales & Services — Medical Equipment Experts",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Sales, installation, AMC and repair of dialysis, X-Ray, ultrasound, anesthesia, RO and OT equipment for hospitals, clinics and diagnostic centers.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d4c480ca-e238-421d-8ed4-cf6cddc6ed48/id-preview-2783a0d4--319b8d07-4522-4f74-b1db-d81c30c382e1.lovable.app-1784278166847.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d4c480ca-e238-421d-8ed4-cf6cddc6ed48/id-preview-2783a0d4--319b8d07-4522-4f74-b1db-d81c30c382e1.lovable.app-1784278166847.png",
+      },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",

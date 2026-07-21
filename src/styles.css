@@ -62,8 +62,7 @@
   --color-primary-glow: var(--primary-glow);
   --color-teal: var(--teal);
   --color-teal-soft: var(--teal-soft);
-  --font-sans:
-    "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -96,11 +95,7 @@
     oklch(0.55 0.13 205) 55%,
     oklch(0.72 0.11 190) 100%
   );
-  --gradient-soft: linear-gradient(
-    180deg,
-    oklch(0.98 0.01 220) 0%,
-    oklch(1 0 0) 100%
-  );
+  --gradient-soft: linear-gradient(180deg, oklch(0.98 0.01 220) 0%, oklch(1 0 0) 100%);
   --shadow-sm: 0 1px 2px oklch(0.42 0.12 235 / 0.06);
   --shadow-md: 0 8px 24px -8px oklch(0.42 0.12 235 / 0.15);
   --shadow-lg: 0 20px 48px -16px oklch(0.42 0.12 235 / 0.22);

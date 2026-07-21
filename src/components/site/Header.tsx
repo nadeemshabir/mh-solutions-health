@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, X, Stethoscope, Sun, Moon } from "lucide-react";
+import { Menu, Phone, X, Sun, Moon } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
+import logoImg from "@/assets/logo.png";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -13,9 +14,11 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex min-w-0 items-center gap-2.5">
-          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl gradient-hero text-primary-foreground shadow-elegant">
-            <Stethoscope className="h-5 w-5" />
-          </div>
+          <img
+            src={logoImg}
+            alt="MH Solutions Logo"
+            className="h-10 w-10 shrink-0 rounded-xl object-contain bg-black p-0.5 shadow-elegant"
+          />
           <div className="min-w-0 leading-tight">
             <div className="truncate text-sm font-bold text-foreground sm:text-base">
               MH Solutions

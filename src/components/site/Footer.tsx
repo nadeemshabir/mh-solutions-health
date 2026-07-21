@@ -1,15 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Clock,
-  Facebook,
-  Linkedin,
-  Instagram,
-  Stethoscope, 
-} from "lucide-react";
+import { Mail, MapPin, Phone, Clock, Facebook, Linkedin, Instagram } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
+import logoImg from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -17,9 +9,11 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="grid h-10 w-10 place-items-center rounded-xl gradient-hero text-primary-foreground shadow-elegant">
-              <Stethoscope className="h-5 w-5" />
-            </div>
+            <img
+              src={logoImg}
+              alt="MH Solutions Logo"
+              className="h-10 w-10 shrink-0 rounded-xl object-contain bg-black p-0.5 shadow-elegant"
+            />
             <div className="leading-tight">
               <div className="text-base font-bold text-foreground">MH Solutions</div>
               <div className="text-[11px] text-muted-foreground">Sales & Services</div>
