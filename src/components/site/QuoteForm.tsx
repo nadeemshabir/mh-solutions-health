@@ -28,6 +28,8 @@ const schema = z.object({
 
 const SERVICES = ["New Purchase", "Installation", "AMC / CMC", "Repair", "Spare Parts", "Other"];
 
+import { sendQuoteEmail } from "@/lib/email";
+
 export function QuoteForm({
   defaultEquipment,
   defaultService,
@@ -50,13 +52,28 @@ export function QuoteForm({
       toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
       return;
     }
+    console.log("Starting submission...");
     setSubmitting(true);
+
+    console.log("Inserting into Supabase...");
     const { error } = await supabase.from("quote_submissions").insert(parsed.data);
-    setSubmitting(false);
+    console.log("Supabase insert finished. Error:", error);
+
     if (error) {
+      setSubmitting(false);
       toast.error("Couldn't submit your request. Please try again.");
       return;
     }
+
+    console.log("Sending email...");
+    sendQuoteEmail({ data: parsed.data })
+      .then(() => console.log("Email sent successfully via Server Function"))
+      .catch((err) => {
+        console.error("Email failed to send:", err);
+      });
+
+    console.log("Form done.");
+    setSubmitting(false);
     setDone(true);
   }
 
