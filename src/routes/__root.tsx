@@ -82,16 +82,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MH Solutions Sales & Services — Medical Equipment Experts" },
+      { title: "MH Solutions and Services — Serving to Support" },
       {
         name: "description",
         content:
           "Sales, installation, AMC and repair of dialysis, X-Ray, ultrasound, anesthesia, RO and OT equipment for hospitals, clinics and diagnostic centers.",
       },
-      { name: "author", content: "MH Solutions Sales & Services" },
+      { name: "author", content: "MH Solutions and Services" },
       {
         property: "og:title",
-        content: "MH Solutions Sales & Services — Medical Equipment Experts",
+        content: "MH Solutions and Services — Serving to Support",
       },
       {
         property: "og:description",
@@ -99,11 +99,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Sales, installation, AMC and repair of dialysis, X-Ray, ultrasound, anesthesia, RO and OT equipment for hospitals, clinics and diagnostic centers.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "MH Solutions Sales & Services" },
+      { property: "og:site_name", content: "MH Solutions and Services" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "MH Solutions Sales & Services — Medical Equipment Experts",
+        content: "MH Solutions and Services — Serving to Support",
       },
       {
         name: "twitter:description",

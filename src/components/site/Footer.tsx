@@ -15,8 +15,8 @@ export function Footer() {
               className="h-10 w-10 shrink-0 rounded-xl object-contain bg-black p-0.5 shadow-elegant"
             />
             <div className="leading-tight">
-              <div className="text-base font-bold text-foreground">MH Solutions</div>
-              <div className="text-[11px] text-muted-foreground">Sales & Services</div>
+              <div className="text-base font-bold text-foreground">{SITE.shortName}</div>
+              <div className="text-[11px] text-muted-foreground">{SITE.tagline}</div>
             </div>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
@@ -100,8 +100,10 @@ export function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} MH Solutions Sales & Services. All rights reserved.</p>
-          <p>Sales · Installation · AMC · Repair</p>
+          <p>
+            © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+          </p>
+          <p>{SITE.tagline}</p>
         </div>
       </div>
     </footer>

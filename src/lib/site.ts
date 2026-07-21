@@ -1,15 +1,16 @@
 export const SITE = {
-  name: "MH Solutions Sales & Services",
-  shortName: "MH Solutions",
+  name: "MH Solutions and Services",
+  shortName: "MH Solutions & Services",
   tagline: "Serving to Support",
   phone: "+91 94190 08266",
   phoneHref: "tel:+919419008266",
   phone2: "+91 99067 58199",
   phone2Href: "tel:+919906758199",
   whatsapp: "919419008266",
-  whatsappMessage: "Hello MH Solutions, I'd like to enquire about medical equipment / services.",
+  whatsappMessage:
+    "Hello MH Solutions and Services, I'd like to enquire about medical equipment / services.",
   email: "mhsolutionsandservices@gmail.com",
-  address: "MH Solutions Sales & Services, Medical Equipment Hub, India",
+  address: "MH Solutions and Services, Medical Equipment Hub, India",
   hours: "Mon – Sat: 9:00 AM – 7:00 PM · Emergency support 24×7",
   mapEmbed: "https://www.google.com/maps?q=medical+equipment+india&output=embed",
   social: {

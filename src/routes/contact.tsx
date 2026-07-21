@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — MH Solutions Sales & Services" },
+      { title: "Contact Us — MH Solutions and Services" },
       {
         name: "description",
         content:

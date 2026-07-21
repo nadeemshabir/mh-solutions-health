@@ -21,11 +21,9 @@ export function Header() {
           />
           <div className="min-w-0 leading-tight">
             <div className="truncate text-sm font-bold text-foreground sm:text-base">
-              MH Solutions
+              {SITE.shortName}
             </div>
-            <div className="hidden text-[11px] text-muted-foreground sm:block">
-              Sales & Services
-            </div>
+            <div className="hidden text-[11px] text-muted-foreground sm:block">{SITE.tagline}</div>
           </div>
         </Link>
 

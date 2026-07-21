@@ -6,13 +6,13 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — MH Solutions Sales & Services" },
+      { title: "About Us — MH Solutions and Services" },
       {
         name: "description",
         content:
           "15+ years serving hospitals and diagnostic centers with medical equipment sales, installation, AMC and repair.",
       },
-      { property: "og:title", content: "About MH Solutions Sales & Services" },
+      { property: "og:title", content: "About MH Solutions and Services" },
       {
         property: "og:description",
         content: "Mission, experience and why healthcare institutions trust our team.",
@@ -38,7 +38,7 @@ function About() {
                 A biomedical partner your facility can rely on.
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                MH Solutions Sales & Services was founded to give healthcare institutions a single,
+                MH Solutions and Services was founded to give healthcare institutions a single,
                 dependable partner for the entire medical equipment lifecycle — from procurement and
                 installation to preventive maintenance and rapid repair.
               </p>
