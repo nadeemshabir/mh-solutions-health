@@ -1,13 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   BadgeCheck,
+  CheckCircle2,
   Clock4,
   HeartPulse,
   PhoneCall,
   ShieldCheck,
   Star,
+  Truck,
   Wrench,
   Zap,
 } from "lucide-react";
@@ -31,6 +33,7 @@ function Home() {
     <>
       <Hero />
       <TrustStrip />
+      <HowWeWork />
       <EquipmentGrid />
       <ServicesHighlight />
       <WhyChooseUs />
@@ -48,18 +51,18 @@ function Hero() {
       <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-8 sm:px-6 sm:pt-12 lg:grid-cols-2 lg:gap-8 lg:py-24 lg:px-8">
         <div className="flex flex-col justify-center">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
-            <HeartPulse className="h-3.5 w-3.5" /> Trusted medical equipment partner
+            <HeartPulse className="h-3.5 w-3.5" /> {SITE.tagline}
           </span>
           <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Precision equipment.{" "}
+            Serving Healthcare.{" "}
             <span className="bg-gradient-to-r from-primary to-teal bg-clip-text text-transparent">
-              Uptime you can trust.
+              Supporting Lives.
             </span>
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            {SITE.name} delivers end-to-end sales, installation, preventive maintenance and rapid
-            repair of critical medical equipment for hospitals, clinics, diagnostic centers and
-            nursing homes.
+            Your trusted partner for medical equipment — from sales and installation to lifelong
+            maintenance. We keep your facility running so you can focus on what matters most: your
+            patients.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button
@@ -78,14 +81,15 @@ function Hero() {
               className="border-primary/30 text-primary hover:bg-primary/5"
             >
               <Link to="/services">
-                <Wrench className="mr-1.5 h-4 w-4" /> Request Service
+                <Wrench className="mr-1.5 h-4 w-4" /> Our Services
               </Link>
             </Button>
           </div>
-          <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border/60 pt-6 text-sm">
-            <Stat value="15+" label="Years of service" />
+          <div className="mt-10 grid grid-cols-4 gap-4 border-t border-border/60 pt-6 text-sm">
+            <Stat value="15+" label="Years active" />
             <Stat value="800+" label="Installations" />
-            <Stat value="24×7" label="Emergency support" />
+            <Stat value="24x7" label="Support" />
+            <Stat value="6+" label="Equipment types" />
           </div>
         </div>
         <div className="relative">
@@ -100,7 +104,7 @@ function Hero() {
             height={1100}
             className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant-lg"
           />
-          <div className="absolute -bottom-6 -left-6 hidden max-w-[220px] rounded-2xl border border-border bg-background/95 p-4 shadow-elegant backdrop-blur sm:block">
+          <div className="absolute -bottom-6 -left-6 hidden max-w-[210px] rounded-2xl border border-border bg-background/95 p-4 shadow-elegant backdrop-blur sm:block">
             <div className="flex items-center gap-2 text-primary">
               <Clock4 className="h-4 w-4" />
               <span className="text-xs font-semibold uppercase tracking-wide">Rapid response</span>
@@ -108,6 +112,13 @@ function Hero() {
             <p className="mt-1 text-sm font-medium text-foreground">
               Same-day dispatch for critical equipment downtime.
             </p>
+          </div>
+          <div className="absolute -top-5 -right-5 hidden items-center gap-2 rounded-2xl border border-border bg-background/95 px-4 py-3 shadow-elegant backdrop-blur sm:flex">
+            <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+            <div>
+              <div className="text-xs font-semibold text-foreground">Certified Engineers</div>
+              <div className="text-[10px] text-muted-foreground">OEM-trained biomedical team</div>
+            </div>
           </div>
         </div>
       </div>
@@ -126,18 +137,22 @@ function Stat({ value, label }: { value: string; label: string }) {
 
 function TrustStrip() {
   const items = [
-    { Icon: ShieldCheck, label: "Certified engineers" },
-    { Icon: BadgeCheck, label: "Genuine spares" },
-    { Icon: Zap, label: "Fast response" },
-    { Icon: HeartPulse, label: "Patient-safe uptime" },
+    { Icon: ShieldCheck, label: "Certified Engineers" },
+    { Icon: BadgeCheck, label: "Genuine OEM Spares" },
+    { Icon: Zap, label: "Same-day Response" },
+    { Icon: HeartPulse, label: "Patient-safe Uptime" },
+    { Icon: Wrench, label: "AMC / CMC Contracts" },
   ];
   return (
-    <section className="border-y border-border bg-secondary/40 py-6">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-4 text-sm text-muted-foreground sm:px-6 lg:px-8">
-        {items.map(({ Icon, label }) => (
-          <div key={label} className="flex items-center gap-2">
-            <Icon className="h-4 w-4 text-primary" />
-            <span className="font-medium text-foreground/80">{label}</span>
+    <section className="border-y border-border bg-secondary/40 py-5">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 text-sm text-muted-foreground sm:px-6 lg:px-8">
+        {items.map(({ Icon, label }, i) => (
+          <div key={label} className="flex items-center gap-5">
+            <div className="flex items-center gap-2">
+              <Icon className="h-4 w-4 text-primary" />
+              <span className="font-medium text-foreground/80">{label}</span>
+            </div>
+            {i < items.length - 1 && <span className="hidden h-4 w-px bg-border lg:block" />}
           </div>
         ))}
       </div>
@@ -145,49 +160,126 @@ function TrustStrip() {
   );
 }
 
-function EquipmentGrid() {
+function HowWeWork() {
+  const steps = [
+    {
+      number: "1",
+      Icon: PhoneCall,
+      title: "Consult & Quote",
+      body: "Tell us your equipment need. We assess your facility, configure the right solution and send a detailed quote — usually within 24 hours.",
+    },
+    {
+      number: "2",
+      Icon: Truck,
+      title: "Supply & Install",
+      body: "We handle procurement, delivery, site preparation, installation, calibration and clinical handover — end to end, with zero hassle for your team.",
+    },
+    {
+      number: "3",
+      Icon: ShieldCheck,
+      title: "Maintain & Support",
+      body: "Post-installation, our AMC/CMC programs and 24x7 emergency line ensure your equipment stays at peak performance, year after year.",
+    },
+  ];
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-          Equipment we deliver & support
+        <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+          How we work
+        </span>
+        <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
+          Simple process. Lasting partnership.
         </h2>
         <p className="mt-4 text-muted-foreground">
-          From dialysis units to complete operation theatres — configured to your facility, backed
-          by lifetime service support.
+          From first call to long-term support — we stay with you at every stage of the equipment
+          lifecycle.
         </p>
       </div>
-
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {EQUIPMENT.map((e) => (
-          <Link
-            key={e.slug}
-            to="/quote"
-            search={{ equipment: e.name }}
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant-lg"
-          >
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <img
-                src={e.image}
-                alt={e.name}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 dark:from-black/60 via-transparent to-transparent" />
-              <div className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-xl bg-background/95 text-primary shadow-elegant">
-                <e.icon className="h-5 w-5" />
+      <div className="relative mt-12">
+        <div className="absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent lg:block" />
+        <div className="grid gap-8 lg:grid-cols-3">
+          {steps.map(({ number, Icon, title, body }) => (
+            <div
+              key={number}
+              className="relative flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant"
+            >
+              <div className="relative mb-5">
+                <div className="grid h-14 w-14 place-items-center rounded-2xl gradient-hero text-primary-foreground shadow-elegant">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                  {number}
+                </span>
               </div>
+              <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
             </div>
-            <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-lg font-semibold text-foreground">{e.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{e.short}</p>
-              <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                Get a Quote{" "}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </div>
-          </Link>
-        ))}
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EquipmentGrid() {
+  return (
+    <section className="bg-secondary/40 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Our range
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
+            Medical equipment we supply and support
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            From dialysis units to complete operation theatres — configured for your facility,
+            backed by lifetime service support.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {EQUIPMENT.map((e) => (
+            <Link
+              key={e.slug}
+              to="/quote"
+              search={{ equipment: e.name }}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant-lg"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={e.image}
+                  alt={e.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 dark:from-black/60 via-transparent to-transparent" />
+                <div className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-xl bg-background/95 text-primary shadow-elegant">
+                  <e.icon className="h-5 w-5" />
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-lg font-semibold text-foreground">{e.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{e.short}</p>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Get a Quote{" "}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Button
+            asChild
+            variant="outline"
+            className="border-primary/30 text-primary hover:bg-primary/5"
+          >
+            <Link to="/products">
+              View all products <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
     </section>
   );
@@ -217,11 +309,14 @@ function ServicesHighlight() {
     },
   ];
   return (
-    <section className="bg-secondary/40 py-20">
+    <section className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1.4fr]">
           <div>
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+              Services
+            </span>
+            <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
               End-to-end service for every equipment lifecycle
             </h2>
             <p className="mt-4 text-muted-foreground">
@@ -261,48 +356,53 @@ function WhyChooseUs() {
   const items = [
     {
       Icon: BadgeCheck,
-      title: "15+ years of experience",
+      title: "15+ Years of Experience",
       body: "Trusted by hospitals, diagnostic chains and nursing homes across the region.",
     },
     {
       Icon: ShieldCheck,
-      title: "Certified biomedical engineers",
-      body: "In-house team trained across leading OEM platforms.",
+      title: "Certified Biomedical Engineers",
+      body: "In-house team trained across leading OEM platforms — ensuring precision every time.",
     },
     {
       Icon: Zap,
-      title: "Rapid response times",
-      body: "Same-day dispatch for critical downtime, with 24×7 emergency line.",
+      title: "Rapid Response Times",
+      body: "Same-day dispatch for critical downtime, backed by a 24x7 emergency support line.",
     },
     {
       Icon: HeartPulse,
-      title: "Patient-safety first",
+      title: "Patient-safety First",
       body: "Calibrated installs, AERB compliance and audit-ready service records.",
     },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-          Why healthcare teams choose us
-        </h2>
-        <p className="mt-4 text-muted-foreground">
-          A dependable partner for procurement teams, biomedical departments and clinicians.
-        </p>
-      </div>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {items.map(({ Icon, title, body }) => (
-          <div
-            key={title}
-            className="rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-elegant"
-          >
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-teal-soft text-primary">
-              <Icon className="h-5 w-5" />
+    <section className="bg-secondary/40 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Why choose us
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
+            Built for healthcare teams who cannot afford downtime
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            A dependable partner for procurement teams, biomedical departments and clinicians.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map(({ Icon, title, body }) => (
+            <div
+              key={title}
+              className="rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-elegant"
+            >
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-teal-soft text-primary">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 text-base font-semibold text-foreground">{title}</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground">{body}</p>
             </div>
-            <h3 className="mt-4 text-base font-semibold text-foreground">{title}</h3>
-            <p className="mt-1.5 text-sm text-muted-foreground">{body}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -312,28 +412,37 @@ function Testimonials() {
   const t = [
     {
       quote:
-        "MH Solutions installed our entire dialysis floor and continues to run our AMC. Downtime is virtually zero.",
+        "MH Solutions and Services installed our entire dialysis floor and continues to manage our AMC. Equipment downtime is virtually zero — their team treats our facility like their own.",
       name: "Dr. R. Sharma",
       role: "Medical Director, City Nephrology Center",
+      initials: "RS",
+      color: "from-teal-500 to-cyan-600",
     },
     {
       quote:
-        "Their engineers respond within the hour. For a diagnostic center like ours, that's the difference between a good day and a lost day.",
+        "Their biomedical engineers responded within the hour. For a busy diagnostic center, that responsiveness is the difference between a productive day and a lost one.",
       name: "A. Menon",
       role: "Operations Head, ClearScan Diagnostics",
+      initials: "AM",
+      color: "from-primary to-blue-600",
     },
     {
       quote:
-        "Transparent pricing, genuine spares, and a team that actually understands OT workflow. Highly recommended.",
+        "Transparent pricing, genuine spares, and a team that genuinely understands OT workflow. We have renewed our CMC contract twice — says it all.",
       name: "Dr. P. Iyer",
       role: "Chief Anesthesiologist, Aster Multispecialty",
+      initials: "PI",
+      color: "from-violet-500 to-purple-600",
     },
   ];
   return (
-    <section className="bg-secondary/40 py-20">
+    <section className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Testimonials
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
             Trusted by healthcare teams
           </h2>
           <p className="mt-4 text-muted-foreground">
@@ -344,19 +453,26 @@ function Testimonials() {
           {t.map((x) => (
             <figure
               key={x.name}
-              className="flex flex-col rounded-2xl border border-border bg-background p-6 shadow-sm"
+              className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant"
             >
-              <div className="flex gap-1 text-primary">
+              <div className="flex gap-1 text-amber-400">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
               <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/85">
-                “{x.quote}”
+                "{x.quote}"
               </blockquote>
-              <figcaption className="mt-6 border-t border-border pt-4">
-                <div className="text-sm font-semibold text-foreground">{x.name}</div>
-                <div className="text-xs text-muted-foreground">{x.role}</div>
+              <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-4">
+                <div
+                  className={`grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br ${x.color} text-xs font-bold text-white shadow-sm`}
+                >
+                  {x.initials}
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-foreground">{x.name}</div>
+                  <div className="text-xs text-muted-foreground">{x.role}</div>
+                </div>
               </figcaption>
             </figure>
           ))}
@@ -390,37 +506,44 @@ function FAQ() {
     },
   ];
   return (
-    <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Frequently asked</h2>
-        <p className="mt-4 text-muted-foreground">Answers to what procurement teams ask us most.</p>
+    <section className="bg-secondary/40 py-20">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">FAQ</span>
+          <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">Frequently asked</h2>
+          <p className="mt-4 text-muted-foreground">
+            Answers to what procurement teams ask us most.
+          </p>
+        </div>
+        <Accordion type="single" collapsible className="mt-10">
+          {items.map((it, i) => (
+            <AccordionItem key={i} value={`item-${i}`} className="border-border">
+              <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline">
+                {it.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                {it.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
-      <Accordion type="single" collapsible className="mt-10">
-        {items.map((it, i) => (
-          <AccordionItem key={i} value={`item-${i}`} className="border-border">
-            <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline">
-              {it.q}
-            </AccordionTrigger>
-            <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-              {it.a}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
     </section>
   );
 }
 
 function CTASection() {
   return (
-    <section className="px-4 pb-20 sm:px-6 lg:px-8">
+    <section className="px-4 pb-20 pt-20 sm:px-6 lg:px-8">
       <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl gradient-hero p-10 text-primary-foreground shadow-elegant-lg sm:p-14">
         <div className="relative z-10 grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div>
-            <h2 className="text-3xl font-bold sm:text-4xl">Ready to upgrade your facility?</h2>
-            <p className="mt-4 max-w-2xl text-primary-foreground/90">
-              Get a tailored quote or book a service visit today. Our team usually responds within
-              one business hour.
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Let us support your facility together.
+            </h2>
+            <p className="mt-4 max-w-2xl text-primary-foreground/85">
+              Get a tailored quote or book a service visit. Our team responds within one business
+              hour — because your patients cannot wait.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
@@ -446,6 +569,7 @@ function CTASection() {
           </div>
         </div>
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary-foreground/10 blur-3xl" />
+        <div className="pointer-events-none absolute -left-16 -bottom-16 h-56 w-56 rounded-full bg-primary-foreground/10 blur-3xl" />
       </div>
     </section>
   );
