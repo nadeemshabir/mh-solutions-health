@@ -74,6 +74,39 @@ export type Database = {
         };
         Relationships: [];
       };
+      testimonials: {
+        Row: {
+          created_at: string;
+          hospital: string | null;
+          id: string;
+          name: string;
+          rating: number;
+          status: string;
+          testimonial: string;
+          title: string | null;
+        };
+        Insert: {
+          created_at?: string;
+          hospital?: string | null;
+          id?: string;
+          name: string;
+          rating: number;
+          status?: string;
+          testimonial: string;
+          title?: string | null;
+        };
+        Update: {
+          created_at?: string;
+          hospital?: string | null;
+          id?: string;
+          name?: string;
+          rating?: number;
+          status?: string;
+          testimonial?: string;
+          title?: string | null;
+        };
+        Relationships: [];
+      };
     };
     Views: {
       [_ in never]: never;

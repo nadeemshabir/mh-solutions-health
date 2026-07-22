@@ -1,4 +1,4 @@
-﻿import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/accordion";
 import { EQUIPMENT } from "@/components/site/equipment";
 import { SITE } from "@/lib/site";
+import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -409,34 +410,8 @@ function WhyChooseUs() {
 }
 
 function Testimonials() {
-  const t = [
-    {
-      quote:
-        "MH Solutions and Services installed our entire dialysis floor and continues to manage our AMC. Equipment downtime is virtually zero — their team treats our facility like their own.",
-      name: "Dr. R. Sharma",
-      role: "Medical Director, City Nephrology Center",
-      initials: "RS",
-      color: "from-teal-500 to-cyan-600",
-    },
-    {
-      quote:
-        "Their biomedical engineers responded within the hour. For a busy diagnostic center, that responsiveness is the difference between a productive day and a lost one.",
-      name: "A. Menon",
-      role: "Operations Head, ClearScan Diagnostics",
-      initials: "AM",
-      color: "from-primary to-blue-600",
-    },
-    {
-      quote:
-        "Transparent pricing, genuine spares, and a team that genuinely understands OT workflow. We have renewed our CMC contract twice — says it all.",
-      name: "Dr. P. Iyer",
-      role: "Chief Anesthesiologist, Aster Multispecialty",
-      initials: "PI",
-      color: "from-violet-500 to-purple-600",
-    },
-  ];
   return (
-    <section className="py-20">
+    <section className="py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
@@ -449,33 +424,18 @@ function Testimonials() {
             Real feedback from hospitals, clinics and diagnostic centers we serve.
           </p>
         </div>
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {t.map((x) => (
-            <figure
-              key={x.name}
-              className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant"
-            >
-              <div className="flex gap-1 text-amber-400">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/85">
-                "{x.quote}"
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-                <div
-                  className={`grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br ${x.color} text-xs font-bold text-white shadow-sm`}
-                >
-                  {x.initials}
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-foreground">{x.name}</div>
-                  <div className="text-xs text-muted-foreground">{x.role}</div>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
+        <div className="mt-12">
+          <TestimonialCarousel />
+        </div>
+        <div className="mt-10 text-center">
+          <Link
+            to="/feedback"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline underline-offset-4"
+          >
+            <Star className="h-4 w-4" />
+            Share your experience with us
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
