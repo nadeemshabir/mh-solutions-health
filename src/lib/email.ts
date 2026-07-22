@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { SITE } from "./site";
 
 // Using the provided Resend API key
-const RESEND_API_KEY = "re_KmN9YQHM_PvRdMxkB7XyyQ3qch6wuX3Ee";
+const RESEND_API_KEY = "re_4ZWJNnqY_2aGv53JLLnFZSbXZrg3v8QkM";
 const COMPANY_EMAIL = "mhsolutionsandservices@gmail.com";
 const COMPANY_NAME = "MH Solutions and Services";
 
@@ -113,7 +113,7 @@ export const sendQuoteEmail = createServerFn({ method: "POST" })
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "MH Solutions Website <onboarding@resend.dev>",
+        from: "MH Solutions Website <notifications@mhsolutionsandservices.com>",
         to: [COMPANY_EMAIL],
         subject: `New Quote Request — ${equipment_type || "Medical Equipment"} from ${name}`,
         html: emailHtml,
