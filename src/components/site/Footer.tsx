@@ -76,6 +76,9 @@ export function Footer() {
                 <a href={SITE.phone2Href} className="hover:text-primary">
                   {SITE.phone2}
                 </a>
+                <a href={SITE.phone3Href} className="hover:text-primary">
+                  {SITE.phone3}
+                </a>
               </div>
             </li>
             <li className="flex items-start gap-2">
