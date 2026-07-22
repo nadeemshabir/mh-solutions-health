@@ -56,6 +56,11 @@ export function Footer() {
                 Request a Quote
               </Link>
             </li>
+            <li>
+              <Link to="/feedback" className="text-sm text-muted-foreground hover:text-primary">
+                Share Feedback
+              </Link>
+            </li>
           </ul>
         </div>
 

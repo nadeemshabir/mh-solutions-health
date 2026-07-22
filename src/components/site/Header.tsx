@@ -91,6 +91,13 @@ export function Header() {
               </Link>
             ))}
             <Link
+              to="/feedback"
+              onClick={() => setOpen(false)}
+              className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-secondary"
+            >
+              Share Feedback
+            </Link>
+            <Link
               to="/quote"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-md gradient-hero px-3 py-2.5 text-center text-sm font-semibold text-primary-foreground"
